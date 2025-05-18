@@ -1,8 +1,29 @@
+let mensagemCriada = false;
+
+function MensagemCriada() {
+  	 if (!mensagemCriada) {
+      mostrarMensagem();
+      mensagemCriada = true;
+    }
+}
+
 function mostrarMensagem() {
-    const mensagem = document.getElementById('mensagem');
-    mensagem.textContent = "O Vale do Paraíba representa hoje um exemplo de transformação regional baseada em inovação e tecnologia.";
+  const infoDiv = document.getElementById('infoParqueTecnologico');
+  const mensagem = document.getElementById('mensagem');
+
+  if (infoDiv.style.display === 'none' || infoDiv.style.display === '') {
+    infoDiv.style.display = 'flex';  // mostrar a div com layout flex para imagem ao lado
+
+  } else {
+    infoDiv.style.display = 'none';  // esconder a div
+    mensagem.textContent = '';
+    mensa.style.display = 'none';
   }
-  
+}
+
+
+
+
   let graficoCriado = false;
 
 function mostrarGrafico() {
@@ -18,6 +39,9 @@ function mostrarGrafico() {
     conteudo.style.display = 'none';
   }
 }
+
+
+
 
 function criarGrafico() {
   const ctx = document.getElementById('graficoDiversificacao').getContext('2d');
@@ -53,7 +77,7 @@ function criarGrafico() {
       scales: {
         y: {
           beginAtZero: true,
-          max: 50,
+          max: 60,
           title: {
             display: true,
             text: 'Percentual (%)'
